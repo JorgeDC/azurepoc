@@ -19,7 +19,7 @@ var app = express();
 // out the example azureMobile.js file
 var mobile = azureMobileApps({
     // Explicitly enable the Azure Mobile Apps home page
-    homePage: true,
+    homePage: false,
     // Explicitly enable the Swagger UI - swagger endpoint is at /swagger
     // and the UI is at /swagger/ui
     swagger: true
@@ -29,6 +29,7 @@ var mobile = azureMobileApps({
 // Import the files from the tables directory to configure the /tables API
 mobile.tables.import('./tables');
 
+
 // Initialize the database before listening for incoming requests
 // The tables.initialize() method does the initialization asynchronously
 // and returns a Promise.
@@ -36,4 +37,7 @@ mobile.tables.initialize()
     .then(function () {
         app.use(mobile);    // Register the Azure Mobile Apps middleware
         app.listen(process.env.PORT || 3000);   // Listen for requests
+        var Seedtable = require('./seedtable')
+        var seedtable = new Seedtable();
+        seed
     });
