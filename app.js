@@ -19,7 +19,7 @@ var app = express();
 // out the example azureMobile.js file
 var mobile = azureMobileApps({
     // Explicitly enable the Azure Mobile Apps home page
-    homePage: false,
+    homePage: true,
     // Explicitly enable the Swagger UI - swagger endpoint is at /swagger
     // and the UI is at /swagger/ui
     swagger: true

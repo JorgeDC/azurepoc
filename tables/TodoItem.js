@@ -50,6 +50,13 @@ table.delete(function (context) {
     context.query.where({ userId: context.user.id });
     return context.execute();
 });
+
+table.seed = [
+    { text: "Example 1", complete: true },
+    { text: "Example 2", complete: false }
+];
+
+
 // An example to disable deletions - the same operation can be used on
 // any table operation (read, insert, update, delete)
 //table.delete.access = 'disabled';
